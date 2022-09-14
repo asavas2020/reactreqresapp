@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 // import Register from './Register';
 const Home = () => {
  
@@ -23,6 +24,9 @@ const Home = () => {
 
 }, []);
 
+if (!localStorage.getItem("user")){
+  return <Navigate to="login"/>
+}
 
   return (
     <div className="review">
